@@ -221,13 +221,16 @@ function! SpaceVim#plugins#defind_hooks(bundle) abort
   if g:spacevim_plugin_manager ==# 'neobundle'
     let s:hooks = neobundle#get_hooks(a:bundle)
     func! s:hooks.on_source(bundle) abort
-      call SpaceVim#util#loadConfig('plugins/' . split(a:bundle['name'],'\.')[0] . '.vim')
+      let s:config_rpath = 'plugins/' . split(a:bundle['name'],'\.')[0] . '.vim'
+      call SpaceVim#util#loadConfig(s:config_rpath)
+      call SpaceVim#logger#info('called config vim script: ' . s:config_rpath)
     endf
   elseif g:spacevim_plugin_manager ==# 'dein'
-     " call SpaceVim#logger#debug('plugin name is ' .  g:dein#name)
+    let s:config_rpath = "plugins/" . s:get_config_name(g:dein#name)
     call dein#config(g:dein#name, {
-          \ 'hook_source' : "call SpaceVim#util#loadConfig('plugins/" . s:get_config_name(g:dein#name) . "')"
+          \ 'hook_source' : "call SpaceVim#util#loadConfig('" . s:config_rpath . "')"
           \ })
+    call SpaceVim#logger#info('called config vim script: ' . s:config_rpath)
   endif
 endfunction
 
