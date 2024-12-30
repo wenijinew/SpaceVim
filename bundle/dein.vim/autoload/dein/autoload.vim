@@ -208,6 +208,7 @@ function! dein#autoload#_on_cmd(command, name, args, bang, line1, line2) abort
 
   if exists(':' . a:command) != 2
     call dein#util#_error(printf('command %s is not found.', a:command))
+    call SpaceVim#logger#warn('not found the command ' . a:command . ' from ' . a:name)
     return
   endif
 
@@ -286,6 +287,7 @@ function! s:source_plugin(rtps, index, plugin, sourced) abort
   endif
 
   call insert(a:sourced, a:plugin)
+  call SpaceVim#logger#info('sourced plugin: ' . a:plugin.name . '(' . a:plugin.rtp . ')')
 
   let index = a:index
 
@@ -322,6 +324,7 @@ function! s:source_plugin(rtps, index, plugin, sourced) abort
   if has_key(a:plugin, 'dummy_commands')
     for command in a:plugin.dummy_commands
       silent! execute 'delcommand' command[0]
+      call SpaceVim#logger#info('execute delcommand ' . command[0] . ' for plugin: ' . a:plugin.name)
     endfor
     let a:plugin.dummy_commands = []
   endif
