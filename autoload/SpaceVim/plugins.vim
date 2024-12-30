@@ -40,6 +40,7 @@ function! s:load_plugins() abort
       else
         call SpaceVim#plugins#add(plugin[0], {'overwrite' : 1})
       endif
+      call SpaceVim#logger#info('loading layer ' . layer . ' plugin:' . plugin[0])
     endfor
   endfor
   if has('timers')
@@ -54,6 +55,7 @@ function! s:load_plugins() abort
     else
       call SpaceVim#plugins#add(plugin[0], {'overwrite' : 1})
     endif
+    call SpaceVim#logger#info('loading custom plugin: ' . plugin[0])
   endfor
 endfunction
 
