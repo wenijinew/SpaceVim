@@ -1,7 +1,7 @@
 ---
 repo_name: SpaceVim
-repo_url: https://github.com/wsdjeg/SpaceVim.git
-edit_uri: edit/main/docs/
+repo_url: https://github.com/wenijinew/SpaceVim.git
+edit_uri: edit/master/docs/
 
 site_name: SpaceVim Docs
 nav:
