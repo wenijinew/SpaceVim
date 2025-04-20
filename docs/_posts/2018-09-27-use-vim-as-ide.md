@@ -37,7 +37,7 @@ commentsID: "使用 Vim 搭建基本开发环境"
      enable_guicolors = false
 ```
 
-{% include bilibilivedio.html id="aid=51967466&cid=90976280&page=1" %}
+{% include "../_includes/bilibilivedio.html" %}
 
 ## 基本配置
 
@@ -50,7 +50,7 @@ SpaceVim 的配置文件有两种，一种是全局配置文件(`~/.SpaceVim.d/i
 
 这样操作的好处在于，当处理多个不同语言项目是，不需要频繁更新配置文件，也不用担心载入过多的冗余插件，和无关的语言模块。
 
-{% include bilibilivedio.html id="aid=71915741&cid=124611019&page=1" %}
+{% include "../_includes/bilibilivedio.html" %}
 
 ## 基本使用
 
