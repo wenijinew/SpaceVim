@@ -113,10 +113,10 @@ function! SpaceVim#mapping#leader#defindWindowsLeader(key) abort
     nnoremap <silent> [Window]v
           \ :<C-u>split<CR>
     let lnum = expand('<slnum>') + s:lnum - 4
-    let g:_spacevim_mappings_windows.s = ['vsplit',
+    let g:_spacevim_mappings_windows.s = ['split',
           \ 'split-window',
           \ [
-          \ '[WIN s] is to split windows vertically, switch to the new window',
+          \ '[WIN s] is to split windows, switch to the new window',
           \ '',
           \ 'Definition: ' . s:file . ':' . lnum,
           \ ]
@@ -124,10 +124,10 @@ function! SpaceVim#mapping#leader#defindWindowsLeader(key) abort
     nnoremap <silent> [Window]V
           \ :<C-u>split +bp<CR>
     let lnum = expand('<slnum>') + s:lnum - 4
-    let g:_spacevim_mappings_windows.S = ['vsplit +bp',
+    let g:_spacevim_mappings_windows.S = ['split +bp',
           \ 'split-previous-buffer',
           \ [
-          \ '[WIN S] is to split previous buffer vertically, switch to the new window',
+          \ '[WIN S] is to split previous buffer, switch to the new window',
           \ '',
           \ 'Definition: ' . s:file . ':' . lnum,
           \ ]
@@ -135,10 +135,10 @@ function! SpaceVim#mapping#leader#defindWindowsLeader(key) abort
     nnoremap <silent> [Window]g
           \ :<C-u>vsplit<CR>
     let lnum = expand('<slnum>') + s:lnum - 4
-    let g:_spacevim_mappings_windows.v = ['split',
+    let g:_spacevim_mappings_windows.v = ['vsplit',
           \ 'vsplit-window',
           \ [
-          \ '[WIN v] is to split window, switch to the new window',
+          \ '[WIN v] is to split window vertically, switch to the new window',
           \ '',
           \ 'Definition: ' . s:file . ':' . lnum,
           \ ]
@@ -146,10 +146,10 @@ function! SpaceVim#mapping#leader#defindWindowsLeader(key) abort
     nnoremap <silent> [Window]G
           \ :<C-u>vsplit +bp<CR>
     let lnum = expand('<slnum>') + s:lnum - 4
-    let g:_spacevim_mappings_windows.V = ['split +bp',
+    let g:_spacevim_mappings_windows.V = ['vsplit +bp',
           \ 'vsplit-previous-buffer',
           \ [
-          \ '[WIN V] is to split window, switch to the new window',
+          \ '[WIN V] is to split window vertically, switch to the new window',
           \ '',
           \ 'Definition: ' . s:file . ':' . lnum,
           \ ]
