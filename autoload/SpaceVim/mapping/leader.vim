@@ -111,7 +111,7 @@ function! SpaceVim#mapping#leader#defindWindowsLeader(key) abort
           \ a:key . '"<CR>'
     exe 'nmap ' .a:key . ' [Window]'
     nnoremap <silent> [Window]4
-          \ :<C-u>split | wincmd k | vsplit | wincmd j | vsplit<CR>
+          \ :split | wincmd k | vsplit | wincmd j | vsplit<CR>
     let lnum = expand('<slnum>') + s:lnum - 4
     let g:_spacevim_mappings_windows.4 = ['split to 2x2 layout',
           \ 'split-window 2x2',
