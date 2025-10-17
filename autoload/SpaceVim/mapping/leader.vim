@@ -110,6 +110,17 @@ function! SpaceVim#mapping#leader#defindWindowsLeader(key) abort
     exe 'nnoremap <silent><nowait> [Window] :<c-u>LeaderGuide "' .
           \ a:key . '"<CR>'
     exe 'nmap ' .a:key . ' [Window]'
+    nnoremap <silent> [Window]4
+          \ :<C-u>split | wincmd k | vsplit | wincmd j | vsplit<CR>
+    let lnum = expand('<slnum>') + s:lnum - 4
+    let g:_spacevim_mappings_windows.4 = ['split to 2x2 layout',
+          \ 'split-window 2x2',
+          \ [
+          \ '[WIN 4] is to split windows in 2x2 layout, switch to the new window',
+          \ '',
+          \ 'Definition: ' . s:file . ':' . lnum,
+          \ ]
+          \ ]
     nnoremap <silent> [Window]v
           \ :<C-u>split<CR>
     let lnum = expand('<slnum>') + s:lnum - 4
