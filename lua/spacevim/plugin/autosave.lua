@@ -100,8 +100,12 @@ function M.config(opt)
     if opt[option] ~= nil then
       value = opt[option]
       -- support using environment variable in option value
-      value = vim.fn.expand(value)
-      logger.debug('set option`' .. option .. '` to :' .. value)
+      if type(value) == "string" then
+        value = vim.fn.expand(value)
+      elseif type(value) == "table" then
+        value = vim.tbl_map(vim.fn.expand, value)
+      end
+      logger.debug('set option`' .. option .. '` to :' .. vim.inspect(value))
       default_opt[option] = value
     end
   end
