@@ -98,6 +98,7 @@ end
 function M.config(opt)
   for option, value in pairs(default_opt) do
     if opt[option] ~= nil then
+      value = opt[option]
       logger.debug('set option`' .. option .. '` to :' .. vim.inspect(value))
       default_opt[option] = value
     end
