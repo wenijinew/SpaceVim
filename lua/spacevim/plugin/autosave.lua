@@ -29,6 +29,10 @@ local function location_path(bufname)
     local pth = f.unify_path(default_opt.backupdir, ':p')
       .. f.path_to_fname(bufname, '+=')
       .. '.backup'
+    -- if it doesn't exist, then make it and its parent directories
+    if vim.fn.isdirectory(pth) == 0 then
+      vim.fn.mkdir(vim.fn.fnamemodify(pth, ':h'), 'p')
+    end
     logger.info('backup path is:' .. pth)
     return pth
   end

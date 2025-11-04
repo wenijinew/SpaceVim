@@ -88,7 +88,9 @@ let s:HI = SpaceVim#api#import('vim#highlight')
 let s:autosave_timeout = 0
 let s:autosave_events = []
 let s:autosave_all_buffers = 0
-let s:autosave_location = ''
+" it must not be empty, otherwise it will cause problem: undo will not work if the autosave_events are ['InsertLeave', 'TextChanged'], there will be infinite undo history.
+" the reason is that empty s:autosave_location will cause save to the original file as long as the events are ['InsertLeave', 'TextChanged'] and they occurred as long as we do undo in VISUAL mode.
+let s:autosave_location = '~/.cache/SpaceVim/backup/'
 let s:enable_hop = 1
 
 function! SpaceVim#layers#edit#health() abort
